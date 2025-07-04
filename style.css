@@ -3,7 +3,7 @@
     --primary-color: whitesmoke;
     --secondary-color: rgb(110, 192, 247);
     --background-color: #000; /* fallback color */
-    --block-color1: #ffffff5e; /* fallback color */
+    --block-color1: #efefef; /* fallback color */
     --accent-color1: rgb(243, 81, 53);
     --accent-color2: rgb(253, 250, 244);
     --navbar-color1:rgba(245, 245, 245, 0.445);
@@ -20,32 +20,28 @@ img {
     display: block;
 }
 
-[data-tab-content] { display: none; }
-.active[data-tab-content] { display: block; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     padding-top: 80px;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: var(--background-color); /* fallback color */
-    background-image: url('image001.jpg');
-    background-repeat: no-repeat;
-    background-position: top; /* 20px down on y-axis */
-    background-attachment: fixed;
-    background-size: cover;
 }
+
 /* 2. Layout Containers */
 .nav_container {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 20px;
     padding: 20px;
     padding-right: 40px;
-    background: transparent;  
+    background: black;  
     box-sizing: border-box;}
 .nav_item {
     color: rgb(255, 255, 255);
@@ -54,25 +50,32 @@ body {
     display: flex;
     flex-direction: column;
 }
-section {
-    margin-right: 40px;
-}
 
+.title_page {
+    background-image: url(image001.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    place-content: center;
+
+}
 .title {
     text-align: right;
     text-transform: uppercase;
     color: var(--primary-color);
     font-size: clamp(15px, 4.3vw, 100px); /* Responsive font size */
+    margin: 10px;
 }
 .subtitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 1.5rem;
     text-align: right;
     font-size: clamp(5px, 1.5vw, 25px); /* Responsive font size */
     color: var(--primary-color);
-    padding-bottom: clamp(28vw, 22vw, 10vw);
+    margin: 10px;
+}
+.subtitle a {
+    color: var(--primary-color);
+    font-size: large;
+    text-transform: uppercase;
 }
 /* 3. Typography */
 
@@ -82,32 +85,30 @@ section {
     color: var(--accent-color2);
 }
 
-ul {
-    list-style-type:none;
-    padding: 0;
-    margin: 0;
-}
 .agenda_container {
     display: flex;
-    justify-content: right;
+    flex-direction: column;
 }
 .agenda_item {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    gap: 20px;
-    background-color: transparent;
-    color: whitesmoke;
+    justify-content: space-between;
+    align-items: center;
     font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: clamp(15px, 3vw, 40px); /* Responsive font size */
+    font-size: clamp(15px, 3vw, 40px);  /*Responsive font size */
     text-transform: uppercase;
-    text-align: right;
+    background-color: var(--block-color1);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }    
-.agenda_item p {
-    color: rgb(243, 81, 53);
-}
-a {
+
+.agenda_item a {
     color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
 }
 a:hover {
     color: var(--accent-color1);
@@ -115,14 +116,15 @@ a:hover {
 .galerij_container {
     text-align: right;
 }
+
 .footer {
-    position: fixed;
+    color: var(--primary-color);
     right: 0;
     bottom: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 20px;
-    background: transparent; /* or set a color if needed */
     padding: 20px;
     z-index: 1001;
 }
