@@ -9,15 +9,11 @@
     --navbar-color1:rgba(245, 245, 245, 0.445);
     --navbar-color2: transparent;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 html {
@@ -35,16 +31,16 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: space-evenly;
     padding: 20px;
-    padding-right: 40px;
     background: black;  
-    box-sizing: border-box;}
+    
+}
 .nav_item {
     color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-decoration: none;
 }
 .flex_container {
     display: flex;
@@ -52,30 +48,32 @@ body {
 }
 
 .title_page {
-    background-image: url(image001.jpg);
+    background-image: url(foto001.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 90vh;
     place-content: center;
 
 }
 .title {
     text-align: right;
     text-transform: uppercase;
+    padding: 25px;
     color: var(--primary-color);
     font-size: clamp(15px, 4.3vw, 100px); /* Responsive font size */
-    margin: 10px;
+    
 }
 .subtitle {
     text-align: right;
-    font-size: clamp(5px, 1.5vw, 25px); /* Responsive font size */
+    font-size: clamp(15px, 2.5vw, 25px); /* Responsive font size */
     color: var(--primary-color);
-    margin: 10px;
+    padding-right: 25px;
 }
 .subtitle a {
     color: var(--primary-color);
-    font-size: large;
+    font-size: clamp(35px, 3.5vw, 75px);
     text-transform: uppercase;
+    
 }
 /* 3. Typography */
 
@@ -84,7 +82,9 @@ body {
     font-size: clamp(10px, 2vw, 50px); /* Responsive font size */
     color: var(--accent-color2);
 }
-
+.agenda_page {
+    padding-top: 20px;
+}
 .agenda_container {
     display: flex;
     flex-direction: column;
@@ -113,18 +113,47 @@ body {
 a:hover {
     color: var(--accent-color1);
 }
-.galerij_container {
-    text-align: right;
+
+.galerij_page {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.slider-wrapper {
+    align-self: center;
+    padding: 20px;
+    max-width: 95%;
+}
+
+.slider-wrapper .image-list {
+    display: flex;
+    gap: 18px;
+    font-size: 0;
+    overflow-x: auto;
+    grid-template-columns: repeat(10, 1fr);
+}
+.slider-wrapper .image-list .image-item {
+    width: 340px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.koffie_page {
+    background-image: url(foto009.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    place-content: top;
+    padding-top: 30px;
 }
 
 .footer {
     color: var(--primary-color);
-    right: 0;
-    bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    justify-content: center;
     padding: 20px;
-    z-index: 1001;
+
 }
