@@ -21,10 +21,12 @@ html {
 }
 
 body {
-    padding-top: 80px;
+    padding-top: 20px;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: var(--background-color); /* fallback color */
 }
+
+
 
 /* 2. Layout Containers */
 .nav_container {
@@ -48,7 +50,7 @@ body {
 }
 
 .title_page {
-    background-image: url(image001.jpg);
+    background-image: url(foto001.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
@@ -89,31 +91,58 @@ body {
     display: flex;
     flex-direction: column;
 }
-.agenda_item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: clamp(15px, 3vw, 40px);  /*Responsive font size */
-    text-transform: uppercase;
-    background-color: var(--block-color1);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}    
+@media (max-width:769px) {
+    .agenda_item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 15px;  /*Responsive font size */
+        text-transform: uppercase;
+        background-color: var(--block-color1);
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }    
 
-.agenda_item a {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    padding: 10px;
-    border-radius: 5px;
+    .agenda_item a {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+        padding: 10px;
+        border-radius: 5px;
+    }
+    a:hover {
+        color: var(--accent-color1);
+    }
 }
-a:hover {
-    color: var(--accent-color1);
-}
+@media (min-width: 770px) {
+    .agenda_item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: clamp(15px, 2vw, 40px); /* Responsive font size */
+        text-transform: uppercase;
+        background-color: var(--block-color1);
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }    
 
+    .agenda_item a {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+        padding: 10px;
+        border-radius: 5px;
+    }
+    a:hover {
+        color: var(--accent-color1);
+    }
+}
 .galerij_page {
     display: flex;
     flex-direction: column;
@@ -140,7 +169,7 @@ a:hover {
 }
 
 .koffie_page {
-    background-image: url(foto009.jpg);
+    background-image: url(Galerij/foto009.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     height: 100vh;
