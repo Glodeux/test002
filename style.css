@@ -95,7 +95,7 @@ body {
     color: red;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1rem - 2rem;
 }
 .coming {
     color: rgb(0, 64, 255);
@@ -108,15 +108,16 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: left;
         font-family: 'Segoe UI', Arial, sans-serif;
         font-size: 15px;  /*Responsive font size */
         text-transform: uppercase;
+        text-align: left;
         background-color: var(--block-color1);
         margin: 10px;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(11, 7, 7, 0.2);
     }    
 
     .agenda_item a {
@@ -134,15 +135,16 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: left;
         font-family: 'Segoe UI', Arial, sans-serif;
         font-size: clamp(15px, 2vw, 40px); /* Responsive font size */
         text-transform: uppercase;
+        text-align: left;
         background-color: var(--block-color1);
         margin: 10px;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(11, 7, 7, 0.2);
     }    
 
     .agenda_item a {
