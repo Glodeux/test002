@@ -1,15 +1,51 @@
-/* 1. General Reset and Base Styles */
+/* =========================================================================
+   LUGUNGU ENTERTAINMENT WEBSITE - CSS STYLESHEET
+   =========================================================================
+   
+   This stylesheet contains all styles for the Lugungu Entertainment website.
+   The design is fully responsive and adapts to mobile (≤769px) and desktop (≥770px) screens.
+   
+   Color Scheme:
+   - Primary: Whitesmoke (light text)
+   - Secondary: Light Blue (buttons, accents)
+   - Accent 1: Orange-Red (highlights, warnings)
+   - Accent 2: Off-white (alternative highlight)
+   - Background: Black (dark theme)
+   
+   ========================================================================= */
+
+/* =========================================================================
+   SECTION 1: CSS VARIABLES & COLOR DEFINITIONS
+   =========================================================================
+   
+   Define all reusable colors and values here.
+   Update these values to quickly change the entire site's appearance.
+   
+   ========================================================================= */
 :root {
+    /* Primary Colors */
     --primary-color: whitesmoke;
-    --secondary-color: rgb(110, 192, 247);
-    --background-color: #000; /* fallback color */
-    --block-color1: #efefef; /* fallback color */
-    --accent-color1: rgb(243, 81, 53);
+    --secondary-color: rgb(247, 119, 110);
+    --third-color: rgb(247, 231, 110);
+    --background-color: #000;
+    --block-color1: #efefef;
+    
+    /* Accent Colors */
+    --accent-color1: rgb(243, 81, 53);        /* Orange-Red for warnings/highlights */
     --accent-color2: rgb(253, 250, 244);
-    --navbar-color1:rgba(245, 245, 245, 0.445);
+    --accent-color3: rgba(0, 0, 0, 0.316);      /* Off-white alternative */
+    --navbar-color1: rgba(245, 245, 245, 0.445);
     --navbar-color2: transparent;
 }
 
+
+/* =========================================================================
+   SECTION 2: GLOBAL RESET & BASE STYLES
+   =========================================================================
+   
+   Reset default browser margins/padding and set base font/scroll behavior.
+   
+   ========================================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -17,18 +53,25 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;  /* Enable smooth scrolling for anchor links */
 }
 
 body {
     padding-top: 20px;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: var(--background-color); /* fallback color */
+    background-color: var(--background-color);
 }
 
 
+/* =========================================================================
+   SECTION 3: NAVIGATION BAR
+   =========================================================================
+   
+   Fixed navigation container at the top of the page.
+   Menu items: Home, Agenda, Galerij, Zakelijk
+   
+   ========================================================================= */
 
-/* 2. Layout Containers */
 .nav_container {
     position: fixed;
     top: 0;
@@ -36,14 +79,21 @@ body {
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    background: black;  
-    
+    background: black;
+    z-index: 1000;  /* Ensure navbar stays above all other content */
 }
+
 .nav_item {
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     text-decoration: none;
+    transition: color 0.3s ease;  /* Smooth hover transition */
 }
+
+.nav_item:hover {
+    color: var(--third-color);
+}
+
 .flex_container {
     display: flex;
     flex-direction: column;
@@ -51,145 +101,249 @@ body {
     align-items: flex-end;
 }
 
-.title_page {
-    background-image: url(Galerij/image001.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
-    place-content: end;
 
+/* =========================================================================
+   SECTION 4: TITLE & HERO SECTION
+   =========================================================================
+   
+   Hero section with responsive background images that adapt to screen size.
+   
+   Mobile (≤769px):  Uses smaller, optimized image (TourPoster_mobile.png)
+   Desktop (≥770px): Uses full-size poster (TourPoster.png)
+   
+   ========================================================================= */
+
+/* Default: Mobile background image */
+.title_page {
+    background-image: url(Galerij/Tourposter.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 100px 20px 20px 20px;  /* Top padding to account for fixed navbar */
 }
+
+/* Desktop: Switch to larger background image */
+@media (min-width: 770px) {
+    .title_page {
+        background-image: url(Galerij/Tourposter_Liggend.png);
+        background-position: center;
+        background-size: contain;
+    }
+}
+.Herotitle {
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0px;
+    color: var(--primary-color);
+    font-size: clamp(3px, 2vw, 16px);  /* Scales responsively between 15px and 30px */
+    line-height: 1.2;  /* Reduce space between h1 elements */
+}
+
 .title {
     text-align: right;
     text-transform: uppercase;
     padding: 0px;
     color: var(--primary-color);
-    font-size: clamp(15px, 3vw, 30px); /* Responsive font size */
-    
+    font-size: clamp(15px, 3vw, 30px);  /* Scales responsively between 15px and 30px */
 }
+
 .subtitle {
     text-align: right;
-    font-size: clamp(10px, 2vw, 15px); /* Responsive font size */
+    font-size: clamp(10px, 2vw, 15px);
     font-style: italic;
     color: var(--primary-color);
     padding: 10px 25px 25px 0px;
 }
+
 .subtitle a {
     color: var(--primary-color);
     font-size: clamp(35px, 3.5vw, 75px);
     text-transform: uppercase;
-    
+    transition: color 0.3s ease;
 }
-/* 3. Typography */
+
+.subtitle a:hover {
+    color: var(--secondary-color);
+}
+
+/* Desktop title adjustments */
+@media (min-width: 770px) {
+    .title {
+        text-align: right;
+        padding: 0px 20px 0px 0px;
+        font-size: clamp(15px, 3vw, 40px);
+    }
+}
+
+
+/* =========================================================================
+   SECTION 5: TYPOGRAPHY & TEXT STYLES
+   =========================================================================
+   
+   General text styles for headers, body text, and special text classes.
+   
+   ========================================================================= */
 
 .text_header {
     text-align: right;
-    font-size: clamp(10px, 2vw, 50px); /* Responsive font size */
+    font-size: clamp(10px, 2vw, 50px);
     color: var(--accent-color2);
 }
+
 .agenda_page {
     padding-top: 20px;
 }
+
 .agenda_container {
     display: flex;
     flex-direction: column;
 }
+
 .text {
     flex-direction: row;
     text-transform: capitalize;
     font-weight: bold;
     font-size: 15px;
 }
-.Location {
+
+.location {
     flex-direction: row;
     text-transform: uppercase;
-    font-size: 1rem - 2rem;
+    font-size: clamp(12px, 1.5vw, 18px);
 }
+
 .date {
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 1rem - 2rem;
+    font-size: clamp(16px, 2vw, 20px);
 }
+
+/* Status indicators for event items */
 .sold {
     color: red;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 1rem - 2rem;
+    font-size: clamp(10px, 1.5vw, 14px);
 }
+
 .coming {
     color: rgb(0, 64, 255);
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: clamp(10px, 1.5vw, 14px);
 }
-@media (max-width:769px) {
+
+.ticket-note {
+    color: var(--accent-color1);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: clamp(10px, 2vw, 14px);
+}
+
+
+/* =========================================================================
+   SECTION 6: AGENDA PAGE
+   =========================================================================
+   
+   Event listing section with responsive layout.
+   
+   Mobile (≤769px):   Single column with flexible grid
+   Desktop (≥770px):  Three-column grid layout
+   
+   ========================================================================= */
+
+/* MOBILE LAYOUT: Stacked, compact design */
+@media (max-width: 769px) {
     .agenda_item {
-        display: grid;
+        display: grid;  /* Date | Location | Tickets */
         grid-template-columns: 120px 2fr auto;
         align-items: center;
         font-family: 'Segoe UI', Arial, sans-serif;
-        font-size: 15px;  /*Responsive font size */
+        font-size: 15px;
         text-transform: uppercase;
         text-align: left;
-        background-color: var(--block-color1);
+        background-color: var(--accent-color3);  /* Secondary color with low opacity for dark theme */
+        border-left: 4px solid var(--secondary-color);
         margin: 10px;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(11, 7, 7, 0.2);
-    }    
-
-    .agenda_item a {
+        box-shadow: 0 4px 8px rgba(243, 81, 53, 0.15);  /* Accent color shadow */
         color: var(--primary-color);
-        background-color: var(--secondary-color);
-        padding: 10px;
-        border-radius: 5px;
     }
-    a:hover {
-        color: var(--accent-color1);
+    
+    .agenda_item a {
+        color: var(--background-color);
+        background-color: var(--secondary-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .agenda_item a:hover {
+        background-color: var(--accent-color1);
+        color: white;
+        transform: translateY(-2px);
     }
 }
+
+/* DESKTOP LAYOUT: Centered, spacious design */
 @media (min-width: 770px) {
     .agenda_item {
-        display: grid;
+        display: grid;  /* Date | Location | Tickets */
         grid-template-columns: 1fr 2fr 1fr;
         align-items: center;
         font-family: 'Segoe UI', Arial, sans-serif;
-        font-size: clamp(15px, 2vw, 40px); /* Responsive font size */
+        font-size: clamp(15px, 2vw, 40px);
         text-transform: uppercase;
         text-align: center;
-        background-color: var(--block-color1);
+        background-color: var(--accent-color3);  /* Secondary color with low opacity for dark theme */
+        border-left: 4px solid var(--secondary-color);
         margin: 10px;
-        padding: 10px;
+        padding: 15px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(11, 7, 7, 0.2);
-    }    
-
-    .agenda_item a {
+        box-shadow: 0 4px 8px rgba(243, 81, 53, 0.15);  /* Accent color shadow */
         color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+    
+    .agenda_item:hover {
+        background-color: rgba(110, 192, 247, 0.2);  /* Slightly darker on hover */
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(243, 81, 53, 0.25);
+    }
+    
+    .agenda_item a {
+        color: var(--background-color);
         background-color: var(--secondary-color);
-        padding: 10px;
+        padding: 12px 20px;
         border-radius: 5px;
-    }
-    a:hover {
-        color: var(--accent-color1);
-    }
-    .title_page {
-    background-image: url(Galerij/image001.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
-    place-content: center;
-    }
-    .title {
-    text-align: right;
-    text-transform: uppercase;
-    padding: 0px 20px 0px 0px;
-    color: var(--primary-color);
-    font-size: clamp(15px, 3vw, 40px); /* Responsive font size */
+        text-decoration: none;
+        transition: all 0.3s ease;
     }
     
-    
+    .agenda_item a:hover {
+        background-color: var(--accent-color1);
+        color: white;
+        transform: scale(1.05);
+    }
 }
+
+
+/* =========================================================================
+   SECTION 7: GALLERY PAGE
+   =========================================================================
+   
+   Image gallery with horizontal scrolling slider.
+   Displays images from the Galerij folder.
+   
+   ========================================================================= */
+
 .galerij_page {
     display: flex;
     flex-direction: column;
@@ -206,14 +360,32 @@ body {
     display: flex;
     gap: 18px;
     font-size: 0;
-    overflow-x: auto;
+    overflow-x: auto;           /* Enable horizontal scrolling */
     grid-template-columns: repeat(10, 1fr);
+    scroll-behavior: smooth;
 }
+
 .slider-wrapper .image-list .image-item {
     width: 340px;
     height: 500px;
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+
+.slider-wrapper .image-list .image-item:hover {
+    transform: scale(1.05);  /* Slight zoom on hover */
+}
+
+
+/* =========================================================================
+   SECTION 8: CONTACT/ZAKELIJK PAGE
+   =========================================================================
+   
+   Business contact section with background image.
+   
+   ========================================================================= */
 
 .koffie_page {
     background-image: url(Galerij/foto009.jpg);
@@ -224,6 +396,15 @@ body {
     padding-top: 30px;
 }
 
+
+/* =========================================================================
+   SECTION 9: FOOTER
+   =========================================================================
+   
+   Simple footer at the bottom of the page.
+   
+   ========================================================================= */
+
 .footer {
     color: var(--primary-color);
     width: 100%;
@@ -231,5 +412,10 @@ body {
     flex-direction: row;
     justify-content: center;
     padding: 20px;
-
+    border-top: 1px solid var(--block-color1);
 }
+
+
+/* =========================================================================
+   END OF STYLESHEET
+   ========================================================================= */
